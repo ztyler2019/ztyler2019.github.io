@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Donate!</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="header" class="alt">
+					<a href="index.html" class="logo"><strong>Portfolio</strong> <span>by Zackary Tyler</span></a>
+					<nav>
+						<a href="#menu">Menu</a>
+					</nav>
+				</header>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<ul class="links">
+						<li><a href="index.html">Home</a></li>
+						<li style="color: #f5f785d7;"><a href="resume.html">Résumé</a></li>
+						<li style="color: #6fc3dfc0;"><a href="dataEngineering.html">Data Engineering</a></li>
+						<li style="color: #b383a7c0;"><a href="blenderProjects.html">Blender</a></li>
+						<li style="color: #8ea9e8c0;"><a href="programming.html">Programming</a></li>
+						<li style="color: #e7b788c0;"><a href="music.html">Music</a></li>
+						<li style="color: #ec8d81c0;"><a href="orphanProjects.html">Misc.</a></li>
+						<li style="color: #bee88ec0;"><a href="aboutMe.html">About Me</a></li>
+						<li style="color: #87c5a4c0;"><a href="donate.html">Support Us!</a></li>
+					</ul>
+				</nav>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+				<section id="banner" class="style2">
+					<div class="inner">
+						<span class="image">
+							<img src="images/money.gif" alt="" />
+						</span>
+						<header class="major">
+							<h1>Donate!</h1>
+						</header>
+						<div class="content">
+							<p>Thank you for visiting my page! If you like my work, and want to support my future projects,
+								please consider donating and letting me know what you would be interested in seeing me do!
+							</p>
+						</div>
+						
+					</div>
+				</section>
+
+				<!-- Main 
+					<div id="main" class="alt">
+
+						<!-- One 
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1></h1>
+									</header>
+									<p>
+									</p>
+								</div>
+							</section>
+
+					</div> -->
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form class="contact-form" action="https://formspree.io/f/mgepkdzd" method="post" id="emailForm">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="Name" id="name" placeholder="First M. Lastname" required/>
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="E-mail" id="email" placeholder="user@email.com" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="Message" placeholder="Message" id="message" rows="6" required></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input id="sendMessage" onclick="playAudio(); messageSent();" type="submit" name="" value="Send" class="primary" /></li>
+										<li><input type="reset" value="Clear" /></li>
+										<li><h3></h3><p id="descriptionError" style="visibility: hidden; color:steelblue; text-align: center;">Sent!</p></li>
+	
+										<audio id="myAudio">
+											<source src="audio/youGotMail.wav" type="audio/mp3">
+										</audio>
+										<script>
+											var x = document.getElementById("myAudio");
+											function playAudio() {
+												x.play();
+											}
+											function messageSent() {
+												descriptionError.style.visibility = "visible";
+											}
+										</script>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<!-- Paypal -->
+								<div id="smart-button-container">
+									<div style="text-align: center"><label for="amount">$ Amount: </label><input name="amountInput" type="number" id="amount" value="" placeholder="7.10"></div>
+									  <p id="priceLabelError" style="visibility: hidden; color:steelblue; text-align: center;">Please enter a price</p>
+									<div style="text-align: center"><label for="description">Comment: </label><input type="text" name="descriptionInput" id="description" maxlength="127" value=""placeholder="Thanks for the coffee!"></div>
+									  <p id="descriptionError" style="visibility: hidden; color:steelblue; text-align: center;">Please enter a description</p>
+									
+									<div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
+									  <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Please enter an Invoice ID</p>
+									<div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container"></div>
+								</div>
+								
+								  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+								  <script>
+								  function initPayPalButton() {
+									var description = document.querySelector('#smart-button-container #description');
+									var amount = document.querySelector('#smart-button-container #amount');
+									var descriptionError = document.querySelector('#smart-button-container #descriptionError');
+									var priceError = document.querySelector('#smart-button-container #priceLabelError');
+									var invoiceid = document.querySelector('#smart-button-container #invoiceid');
+									var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
+									var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
+								
+									var elArr = [description, amount];
+								
+									if (invoiceidDiv.firstChild.innerHTML.length > 1) {
+									  invoiceidDiv.style.display = "block";
+									}
+								
+									var purchase_units = [];
+									purchase_units[0] = {};
+									purchase_units[0].amount = {};
+								
+									function validate(event) {
+									  return event.value.length > 0;
+									}
+								
+									paypal.Buttons({
+									  style: {
+										color: 'silver',
+										shape: 'pill',
+										label: 'paypal',
+										layout: 'vertical',
+										
+									  },
+								
+									  onInit: function (data, actions) {
+										actions.disable();
+								
+										if(invoiceidDiv.style.display === "block") {
+										  elArr.push(invoiceid);
+										}
+								
+										elArr.forEach(function (item) {
+										  item.addEventListener('keyup', function (event) {
+											var result = elArr.every(validate);
+											if (result) {
+											  actions.enable();
+											} else {
+											  actions.disable();
+											}
+										  });
+										});
+									  },
+								
+									  onClick: function () {
+										if (description.value.length < 1) {
+										  descriptionError.style.visibility = "visible";
+										} else {
+										  descriptionError.style.visibility = "hidden";
+										}
+								
+										if (amount.value.length < 1) {
+										  priceError.style.visibility = "visible";
+										} else {
+										  priceError.style.visibility = "hidden";
+										}
+								
+										if (invoiceid.value.length < 1 && invoiceidDiv.style.display === "block") {
+										  invoiceidError.style.visibility = "visible";
+										} else {
+										  invoiceidError.style.visibility = "hidden";
+										}
+								
+										purchase_units[0].description = description.value;
+										purchase_units[0].amount.value = amount.value;
+								
+										if(invoiceid.value !== '') {
+										  purchase_units[0].invoice_id = invoiceid.value;
+										}
+									  },
+								
+									  createOrder: function (data, actions) {
+										return actions.order.create({
+										  purchase_units: purchase_units,
+										});
+									  },
+								
+									  onApprove: function (data, actions) {
+										return actions.order.capture().then(function (details) {
+										  alert('Transaction completed by ' + details.payer.name.given_name + '!');
+										});
+									  },
+								
+									  onError: function (err) {
+										console.log(err);
+									  }
+									}).render('#paypal-button-container');
+								  }
+								  initPayPalButton();
+								  </script>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/zackary-tyler-630054127/" class="icon brands alt fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.instagram.com/zacks_cozy_corner/" class="icon brands alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+							<li><a href="https://soundcloud.com/user-591298103" class="icon brands alt fa-soundcloud" target="_blank"><span class="label">SoundCloud</span></a></li>
+							<li><a href="https://www.patreon.com/1stwice?fan_landing=true" class="icon brands alt fa-patreon" target="_blank"><span class="label">Patreon</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<!--<li>&copy; Images</li>--><li>Images By: Zackary Tyler</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
